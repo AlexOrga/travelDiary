@@ -40,3 +40,19 @@ const coolPlaces = [
         id: 'florida'
     }
 ];
+
+
+const cardPrint = (placesArray) => {
+    let domString = '';
+    placesArray.forEach((place) => {
+        domString += `<div class="card"`;
+        domString +=    `<h4>${place.name}</h4>`;
+        domString +=    `<img src="${place.imgURL}">`;
+        domString +=    `<textarea rows="10" cols="38">${place.description}</textarea>`;
+        domString +=    `<button class="card-btn">Submit</button>`;
+        domString += `</div>`
+        printToDom(domString, "card-holder");
+    });
+}
+
+cardPrint(coolPlaces);

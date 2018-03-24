@@ -1,0 +1,23 @@
+
+#card-holder {
+    display: flex;
+    flex-direction: row;
+}
+
+.card {
+    border: 1px solid black;
+    margin: 5px;
+}
+
+.card textarea,
+.card img,
+.card button {
+    display: block;
+}
+
+.card img {
+    width: 250px;
+    height: 200px;
+    display: block;
+}
+
