@@ -45,7 +45,7 @@ const coolPlaces = [
 const cardPrint = (placesArray) => {
     let domString = '';
     placesArray.forEach((place) => {
-        domString += `<div class="card"`;
+        domString += `<div class="card">`;
         domString +=    `<h4>${place.name}</h4>`;
         domString +=    `<img src="${place.imgURL}">`;
         domString +=    `<textarea id="input" rows="10" cols="38">${place.description}</textarea>`;
@@ -60,18 +60,26 @@ cardPrint(coolPlaces);
 let inputBox = document.getElementById("input");
 const allMyButtons = document.getElementsByClassName("card-btn");
 
+const diaryStringMaker = (place, input) => {
+    let diaryEntry = '';
+    diaryEntry += `<div class="diary-card">`;
+    diaryEntry +=   `<h3>${place}</h3>`;
+    diaryEntry +=   `<p>${input}</p>`;
+    diaryEntry +=   `<button>Edit</button>`;
+    diaryEntry +=   `<button>Delete</button>`;
+    diaryEntry += `</div>`;
+    console.log(diaryEntry);
+    printToDom(diaryEntry, "diary-entry");
+};
+
 for (let i = 0; i < allMyButtons.length; i++){
     allMyButtons[i].addEventListener('click', (e) => {
         let userInput = inputBox.value;
         let diaryEntry = '';
         if (e.target.id === 'noCal'){
-            diaryEntry += `<div class="diary-card">`;
-            diaryEntry +=   `<h3>Northern California</h3>`;
-            diaryEntry +=   `<p>${userInput}</p>`;
-            diaryEntry +=   `<button>Edit</button>`;
-            diaryEntry +=   `<button>Delete</button>`;
-            diaryEntry += `</div>`;
-            printToDom(diaryEntry, "diary-entry");
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
         }
     })
 }
