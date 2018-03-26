@@ -48,7 +48,7 @@ const cardPrint = (placesArray) => {
         domString += `<div class="card">`;
         domString +=    `<h4>${place.name}</h4>`;
         domString +=    `<img src="${place.imgURL}">`;
-        domString +=    `<textarea id="input" rows="10" cols="38">${place.description}</textarea>`;
+        domString +=    `<textarea class="input" rows="10" cols="38">${place.description}</textarea>`;
         domString +=    `<button class="card-btn" id="${place.id}">Submit</button>`;
         domString += `</div>`
         printToDom(domString, "card-holder");
@@ -57,48 +57,46 @@ const cardPrint = (placesArray) => {
 
 cardPrint(coolPlaces);
 
-let inputBox = document.getElementById("input");
+let inputBox = document.getElementsByClassName("input");
 const allMyButtons = document.getElementsByClassName("card-btn");
 
 const diaryStringMaker = (place, input) => {
-    let diaryEntry = '';
-    diaryEntry += `<div class="diary-card">`;
-    diaryEntry +=   `<h3>${place}</h3>`;
-    diaryEntry +=   `<p>${input}</p>`;
-    diaryEntry +=   `<button>Edit</button>`;
-    diaryEntry +=   `<button>Delete</button>`;
-    diaryEntry += `</div>`;
-    console.log(diaryEntry);
+    let diaryEntry = `<div class="diary-card">`;
+    diaryEntry +=        `<h3>${place.innerHTML}</h3>`;
+    diaryEntry +=         `<p>${input}</p>`;
+    diaryEntry +=        `<button>Edit</button>`;
+    diaryEntry +=        `<button>Delete</button>`;
+    diaryEntry +=    `</div>`;
     printToDom(diaryEntry, "diary-entry");
 };
 
 for (let i = 0; i < allMyButtons.length; i++){
     allMyButtons[i].addEventListener('click', (e) => {
-        let userInput = inputBox.value;
-        let diaryEntry = '';
+        let userInput = '';
+        let location = '';
         if (e.target.id === 'noCal'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         } else if (e.target.id === 'jordan'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         } else if (e.target.id === 'abuDhabi'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         } else if (e.target.id === 'tanzania'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         } else if (e.target.id === 'southKorea'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         } else if (e.target.id === 'florida'){
-            let location = e.target.parentNode.children[0];
-            console.log(location);
+            userInput = e.target.parentNode.children[2].innerHTML;
+            location = e.target.parentNode.children[0];
             diaryStringMaker(location, userInput);
         }
     })
