@@ -80,6 +80,26 @@ for (let i = 0; i < allMyButtons.length; i++){
             let location = e.target.parentNode.children[0];
             console.log(location);
             diaryStringMaker(location, userInput);
+        } else if (e.target.id === 'jordan'){
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
+        } else if (e.target.id === 'abuDhabi'){
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
+        } else if (e.target.id === 'tanzania'){
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
+        } else if (e.target.id === 'southKorea'){
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
+        } else if (e.target.id === 'florida'){
+            let location = e.target.parentNode.children[0];
+            console.log(location);
+            diaryStringMaker(location, userInput);
         }
     })
 }

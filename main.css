@@ -1,18 +1,39 @@
 
+body {
+    background-color: slategray;
+}
+
+h1 {
+    text-align: center;
+}
+
 #card-holder {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .card {
     border: 1px solid black;
-    margin: 5px;
+    margin-top: 20px;
+    margin-left: 85px;
+    margin-right: 85px;
+    text-align: center;
+    background-color: rgb(255, 136, 0);
+    width: 17%;
+}
+
+.card button {
+    margin: 0 auto;
 }
 
 .card textarea,
 .card img,
 .card button {
+    margin: 2px auto;
     display: block;
+
 }
 
 .card img {
