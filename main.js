@@ -1,5 +1,5 @@
 const printToDom = (string, id) => {
-    document.getElementById(id).innerHTML = string;
+    document.getElementById(id).innerHTML += string;
 }
 
 const coolPlaces = [
@@ -51,8 +51,8 @@ const cardPrint = (placesArray) => {
         domString +=    `<textarea class="input" rows="10" cols="38">${place.description}</textarea>`;
         domString +=    `<button class="card-btn" id="${place.id}">Submit</button>`;
         domString += `</div>`
-        printToDom(domString, "card-holder");
     });
+    printToDom(domString, "card-holder");
 }
 
 cardPrint(coolPlaces);
@@ -74,30 +74,8 @@ for (let i = 0; i < allMyButtons.length; i++){
     allMyButtons[i].addEventListener('click', (e) => {
         let userInput = '';
         let location = '';
-        if (e.target.id === 'noCal'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        } else if (e.target.id === 'jordan'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        } else if (e.target.id === 'abuDhabi'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        } else if (e.target.id === 'tanzania'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        } else if (e.target.id === 'southKorea'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        } else if (e.target.id === 'florida'){
-            userInput = e.target.parentNode.children[2].innerHTML;
-            location = e.target.parentNode.children[0];
-            diaryStringMaker(location, userInput);
-        }
+        userInput = e.target.parentNode.children[2].innerHTML;
+        location = e.target.parentNode.children[0];
+        diaryStringMaker(location, userInput);
     })
 }
