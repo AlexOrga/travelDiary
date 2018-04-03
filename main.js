@@ -60,6 +60,42 @@ cardPrint(coolPlaces);
 let inputBox = document.getElementsByClassName("input");
 const allMyButtons = document.getElementsByClassName("card-btn");
 
+
+const deleteBtn = () => {
+    const deleteIt = document.getElementsByClassName('delete-btn');
+    for (let i=0; i<deleteIt.length; i++){
+        deleteIt[i].addEventListener('click', (e) => {
+            let cardForButton = e.target.parentNode;
+            cardForButton.remove(); 
+        })
+    }
+};
+
+const editBtn = () => {
+    const editIt = document.getElementsByClassName('edit-btn');
+    for (let i=0; i<editIt.length; i++){
+        editIt[i].addEventListener('click', (e) => {
+            let cardDescr = e.target.parentNode.children[1];
+            cardDescr.innerHTML = `<input class="edited"></input>`;
+            editEvent();
+        })
+    }
+}
+
+const editEvent = () => {
+    let editedInput = document.getElementsByClassName('edited');
+    for (let i=0; i<editedInput.length; i++){
+        editedInput[i].addEventListener('keypress', function (e) {
+            var key = e.which || e.keyCode;
+            if (key === 13) {
+                let location = e.target.parentNode.parentNode.children[1];
+                let newCardDescr = e.target.parentNode.children[0].value;
+                location.innerHTML = `<p>${newCardDescr}</p>`;
+            }
+        });
+    }
+};
+
 const diaryStringMaker = (place, input) => {
     let diaryEntry = `<div class="diary-card">`;
     diaryEntry +=        `<h3>${place.innerHTML}</h3>`;
@@ -68,6 +104,8 @@ const diaryStringMaker = (place, input) => {
     diaryEntry +=        `<button class="delete-btn">Delete</button>`;
     diaryEntry +=    `</div>`;
     printToDom(diaryEntry, "diary-entry");
+    editBtn();
+    deleteBtn();
 };
 
 for (let i = 0; i < allMyButtons.length; i++){
@@ -79,3 +117,4 @@ for (let i = 0; i < allMyButtons.length; i++){
         diaryStringMaker(location, userInput);
     })
 }
+
