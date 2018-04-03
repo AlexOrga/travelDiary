@@ -1,5 +1,5 @@
 const printToDom = (string, id) => {
-    document.getElementById(id).innerHTML = string;
+    document.getElementById(id).innerHTML += string;
 }
 
 const coolPlaces = [
@@ -45,14 +45,37 @@ const coolPlaces = [
 const cardPrint = (placesArray) => {
     let domString = '';
     placesArray.forEach((place) => {
-        domString += `<div class="card"`;
+        domString += `<div class="card">`;
         domString +=    `<h4>${place.name}</h4>`;
         domString +=    `<img src="${place.imgURL}">`;
-        domString +=    `<textarea rows="10" cols="38">${place.description}</textarea>`;
-        domString +=    `<button class="card-btn">Submit</button>`;
+        domString +=    `<textarea class="input" rows="10" cols="38">${place.description}</textarea>`;
+        domString +=    `<button class="card-btn" id="${place.id}">Submit</button>`;
         domString += `</div>`
-        printToDom(domString, "card-holder");
     });
+    printToDom(domString, "card-holder");
 }
 
 cardPrint(coolPlaces);
+
+let inputBox = document.getElementsByClassName("input");
+const allMyButtons = document.getElementsByClassName("card-btn");
+
+const diaryStringMaker = (place, input) => {
+    let diaryEntry = `<div class="diary-card">`;
+    diaryEntry +=        `<h3>${place.innerHTML}</h3>`;
+    diaryEntry +=         `<p>${input}</p>`;
+    diaryEntry +=        `<button class="edit-btn">Edit</button>`;
+    diaryEntry +=        `<button class="delete-btn">Delete</button>`;
+    diaryEntry +=    `</div>`;
+    printToDom(diaryEntry, "diary-entry");
+};
+
+for (let i = 0; i < allMyButtons.length; i++){
+    allMyButtons[i].addEventListener('click', (e) => {
+        let userInput = '';
+        let location = '';
+        userInput = e.target.parentNode.children[2].value;
+        location = e.target.parentNode.children[0];
+        diaryStringMaker(location, userInput);
+    })
+}
