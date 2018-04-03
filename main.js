@@ -64,8 +64,8 @@ const diaryStringMaker = (place, input) => {
     let diaryEntry = `<div class="diary-card">`;
     diaryEntry +=        `<h3>${place.innerHTML}</h3>`;
     diaryEntry +=         `<p>${input}</p>`;
-    diaryEntry +=        `<button>Edit</button>`;
-    diaryEntry +=        `<button>Delete</button>`;
+    diaryEntry +=        `<button class="edit-btn">Edit</button>`;
+    diaryEntry +=        `<button class="delete-btn">Delete</button>`;
     diaryEntry +=    `</div>`;
     printToDom(diaryEntry, "diary-entry");
 };
@@ -74,7 +74,7 @@ for (let i = 0; i < allMyButtons.length; i++){
     allMyButtons[i].addEventListener('click', (e) => {
         let userInput = '';
         let location = '';
-        userInput = e.target.parentNode.children[2].innerHTML;
+        userInput = e.target.parentNode.children[2].value;
         location = e.target.parentNode.children[0];
         diaryStringMaker(location, userInput);
     })

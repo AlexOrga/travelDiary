@@ -25,6 +25,8 @@ h4 {
     flex-wrap: wrap;
 }
 
+/* Location Cards */
+
 .card {
     border: 1px solid black;
     margin-top: 20px;
@@ -53,3 +55,16 @@ h4 {
     display: block;
 }
 
+/* Diary Entry Cards */
+
+.diary-card {
+    margin: 20px auto;
+    width: 67.3%;
+    border: 1px solid black;
+    background-color: rgb(196, 105, 2);
+}
+
+.diary-card h3,
+.diary-card p {
+    color: white;
+}
