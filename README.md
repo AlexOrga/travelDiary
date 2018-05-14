@@ -4,7 +4,11 @@
 
 This application displays 6 locations in which the user has traveled.  An input box is available for the user to write their own blog post about their experience in that location.  Their post is displayed below the location cards and then they have an option to either edit their post or delete it entirely.
 
-#Screen Shots
+# Screen Shots
+
+![Webpage](https://raw.githubusercontent.com/AlexOrga/travelDiary/master/screenshots/TravelDiary.png)
+
+![Webpage](https://raw.githubusercontent.com/AlexOrga/travelDiary/master/screenshots/TravelDiary2.png)
 
 # How To Run
 
