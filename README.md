@@ -1,30 +1,16 @@
 # Travel Diary
-Setup
-Create a new repository on GitHub
-Connect the repository with a directory in single-page-apps/exercises
-Create a GitHub project and thoroughly plan out the project, breaking it into well-documented tickets.
-After pushing your base README.md to master, you should be working off branches
-Create an index.html, main.js and main.css and link them all together.
 
-Technical Requirements
-Single responsibility prinicple: Each function should be responsible for one thing.
-No frameworks or libraries (Bootstrap/Materialize, jQuery, etc); everything is vanilla
+# Description
 
-Requirements
-Create an array of objects that represent places you've been or want to go. These objects should have a title, image and description. You need at least 5 unique objects in the array.
-Print each of the objects to the DOM in a "card" that also has it's own input box and submit button. There should be 3 "cards" per row.
-The final result of printing the array should look like the following mockup: Travel Diary Mock Up Part 1
-The user should be able to type in the text box for a specific location, click the submit button on that card, and their entry should appear in a "diary" below the cards.
-The diary entry should contain the name of the location from the card the user was typing in (and hit the submit button in). It should also contain only the text that was in the text box from that card.
-The text box for that card should be cleared upon submission.
+This application displays 6 locations in which the user has traveled.  An input box is available for the user to write their own blog post about their experience in that location.  Their post is displayed below the location cards and then they have an option to either edit their post or delete it entirely.
 
-The diary entries should build up as the user continues to type in cards and submit their entries. Newest entries should appear at the bottom. The final result will look like the following mockup: Travel Diary Mock Up Part 2
-BONUS ALERT: Once a user has written about a place at least once, change the color of the card for that place.
+#Screen Shots
 
-BONUS BONUS ALERT: Add a timestamp to the diary entries.
+# How To Run
 
-BONUS BONUS BONUS ALERT: Users should be able to delete diary entries.
-
-But wait there's more...
-
-BONUS BONUS BONUS BONUS ALERT: Users should be able to edit their diary entries.
+- Requires Node.js
+- In your browser type ``` npm install http-server ```
+- Clone down this repo and navigate to the projects folder
+- In the terminal and on this project's local directory type ``` hs -p 8080 ```
+- Navigate to localhost: 8080 in the browser
+- If page does not display press ``` control - shift - r ```
